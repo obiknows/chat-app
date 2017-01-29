@@ -5,7 +5,7 @@ ENV LAST_UPDATED '1/27/17 4:40pmz'
 COPY . /app
 
 # Change working directory
-WORKDIR /app
+WORKDIR /app/messageApp
 
 # Install dependencies
 RUN npm install
