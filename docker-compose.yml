@@ -10,13 +10,15 @@ services:
       - mongo-data:/data/db # link the folders
     expose:
       - "27017" # hit us up, 27017
-  # 2. kv
-  # kv:
-  #   image: redis:alpine
-  #   volumes: 
-  #     - redis-data:/data
-  #   expose: 
-  #     - "6379"
+  # 2. load balancer (put in front of app) 8000[host] => 80[lb]
+  lbapp:
+    image: dockercloud/haproxy
+    links: 
+      - app
+    volumes: 
+      - /var/run/docker.sock:/var/run/docker.sock
+    ports: 
+      - "8000:80"
   # 3. app
   app:
     image: samnnodim/message-app # use image from dockerfile
