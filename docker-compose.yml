@@ -11,26 +11,26 @@ services:
     expose:
       - "27017" # hit us up, 27017
   # 2. kv
-  kv:
-    image: redis:alpine
-    volumes: 
-      - redis-data:/data
-    expose: 
-      - "6379"
+  # kv:
+  #   image: redis:alpine
+  #   volumes: 
+  #     - redis-data:/data
+  #   expose: 
+  #     - "6379"
   # 3. app
   app:
-    image: chat-app:v0.2 # use image from dockerfile
+    image: samnnodim/message-app # use image from dockerfile
     ports:
-      - "8000:80" # b/c 80 is exposed in the image
+      - "80" # b/c 80 is exposed in the image
     links:
       - mongo
     depends_on: 
       - mongo
     environment: 
-      - MONGO_URL=mongodb://mongo/chat-app
-      - REDIS_URL=redis
+      - MONGO_URL=mongodb://mongo/messageApp
+      # - REDIS_URL=redis
 
 # define some volumes
 volumes:
   mongo-data:
-  redis-data:
+  # redis-data:
