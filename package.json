@@ -1,0 +1,22 @@
+{
+  "name": "chat-app",
+  "version": "1.0.0",
+  "description": "a sails js chat app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/samnnodim/chat-app.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/samnnodim/chat-app/issues"
+  },
+  "homepage": "https://github.com/samnnodim/chat-app#readme",
+  "dependencies": {
+    "sails-mongo": "^0.12.2"
+  }
+}
